@@ -1,32 +1,25 @@
 # Profile is saved at "<My Documents>\WindowsPowerShell\profile.ps1"
+# Information about PowerShell profile
+# http://technet.microsoft.com/en-ca/library/ee692764.aspx
 
+# http://stackoverflow.com/questions/2085744/how-to-get-current-username-in-windows-powershell
+$UserName = [Environment]::UserName
+$MachineName = [Environment]::MachineName
+$UserDomainName = [Environment]::UserDomainName
 # Change background color on all elevated command prompts (from ilovepowershell.com):
 # http://www.ilovepowershell.com/profile-trick-how-to-set-administrator-mode-background-color/
 if ($host.UI.RawUI.WindowTitle -match "Administrator")
 {
-    $host.UI.RawUI.BackgroundColor = "DarkRed";
+    $host.UI.RawUI.BackgroundColor = "DarkRed"
     $host.UI.RawUI.ForegroundColor = "White"
+    Clear-Host
 } else {
-
     # Load Windows PowerShell cmdlets for managing vSphere
+    Write-Host "Loading vSphere cmdlets..."
     Add-PSSnapin VMware.VimAutomation.Core
-
-    # Move to the Documents folder
-    cd Documents
-
-    # This returns the prompt once everything is loaded, otherwise, it looks like powershell just hangs.
-    echo ""
-
-   #$MaximumHistoryCount = 10KB
-
-   #function bye 
-   #{
-   #    Get-History -Count 10KB |Export-CSV ~\.ps_history
-   #    exit
-   #}
-
-   #if (Test-path ~\.ps_history)
-   #{
-   #    Import-CSV ~\.ps_history |Add-History
-   #}
+    Write-Host
 }
+
+# http://stackoverflow.com/questions/9440639/sublime-text-from-command-line-win7
+Set-Alias subl 'C:\Program Files\Sublime Text 2\sublime_text.exe'
+Set-Alias notepad 'C:\Program Files\Sublime Text 2\sublime_text.exe'

@@ -23,3 +23,8 @@ if ($host.UI.RawUI.WindowTitle -match "Administrator")
 # http://stackoverflow.com/questions/9440639/sublime-text-from-command-line-win7
 Set-Alias subl 'C:\Program Files\Sublime Text 2\sublime_text.exe'
 Set-Alias notepad 'C:\Program Files\Sublime Text 2\sublime_text.exe'
+
+# http://blog.somewhatabstract.com/2014/09/01/getting-posh-git-in-all-your-powershell-consoles-using-github-for-windows/
+# Load posh-git example profile
+. (Resolve-Path "$env:LOCALAPPDATA\GitHub\shell.ps1")
+. (Resolve-Path "$env:github_posh_git\profile.example.ps1")
